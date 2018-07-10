@@ -36,7 +36,7 @@ class Api::V1::UsersController < ApplicationController
 		head 204
 	end
 
-
+	
 
 	private	
 
