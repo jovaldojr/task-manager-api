@@ -43,4 +43,27 @@ RSpec.describe Authenticable do
 			end
 		end
 	end
+
+
+	describe '#user_logged_in?' do
+		context 'when there is a user logged in' do
+			before do
+				user = create(:user)
+				allow(app_controler).to receive(:current_user).and_return(user)
+			end
+
+			it { expect(app_controler.user_logged_in?).to be true }
+
+		end
+		
+		context 'when there is no user logged in' do
+			before do
+				user = create(:user)
+				allow(app_controler).to receive(:current_user).and_return(nil)
+			end
+
+			it { expect(app_controler.user_logged_in?).to be false }
+		end
+
+	end
 end
