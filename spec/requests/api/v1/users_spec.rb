@@ -47,7 +47,6 @@ RSpec.describe 'Users API', type: :request do
 
 			it 'returns status code 201' do
 				expect(response).to have_http_status(201)
-
 			end
 
 			it 'returns json data for the created user' do
