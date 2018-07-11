@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
+ruby '2.4.0'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
 gem 'rails', '~> 5.0.7'
-gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.10.0'
 
 group :test do
 	gem 'database_cleaner'
@@ -26,6 +27,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
